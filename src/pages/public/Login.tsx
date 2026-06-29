@@ -116,6 +116,8 @@ export default function Login() {
           <p className="text-xs text-muted-foreground">
             💡 Create a free account to get started with demo data
           </p>
+        </div>
+        
         {/* Custom Footer */}
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground font-medium tracking-wide">
