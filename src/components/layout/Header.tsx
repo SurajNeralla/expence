@@ -14,12 +14,11 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-30 h-16 border-b border-border/50 flex items-center px-4 md:px-6 gap-4"
-      style={{ background: 'rgba(15,15,26,0.85)', backdropFilter: 'blur(20px)' }}
+      className="sticky top-0 z-30 h-16 border-b border-border flex items-center px-4 md:px-6 gap-4 bg-background/80 backdrop-blur-md"
     >
       {/* Mobile logo */}
       <div className="md:hidden flex items-center gap-2">
-        <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">₹</div>
+        <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">₹</div>
         <span className="font-display font-bold text-sm">ExpenseTracker</span>
       </div>
 

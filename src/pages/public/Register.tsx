@@ -49,7 +49,7 @@ export default function Register() {
       <div className="fixed inset-0 -z-10" style={{ background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.1) 0%, transparent 70%)' }} />
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg shadow-indigo-500/30">₹</div>
+          <div className="inline-flex w-14 h-14 rounded-2xl bg-primary items-center justify-center text-primary-foreground text-2xl font-bold mb-4 shadow-lg shadow-primary/20">₹</div>
           <h1 className="text-2xl font-display font-bold">Create your account</h1>
           <p className="text-muted-foreground text-sm mt-1">Start tracking your finances for free</p>
         </div>
@@ -84,7 +84,7 @@ export default function Register() {
               </div>
             </div>
             <button type="submit" disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-all hover:scale-[1.01] disabled:opacity-50 shadow-lg shadow-indigo-500/20">
+              className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:opacity-90 transition-all hover:scale-[1.01] disabled:opacity-50 shadow-lg shadow-primary/20">
               {loading ? <Loader2 size={18} className="animate-spin" /> : <><span>Create Account</span><ArrowRight size={16} /></>}
             </button>
           </form>

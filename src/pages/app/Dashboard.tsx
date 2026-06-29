@@ -23,7 +23,7 @@ function StatCard({
         </div>
       </div>
       <div>
-        <div className="text-2xl font-display font-bold text-white mb-1">{value}</div>
+        <div className="text-2xl font-display font-bold text-foreground mb-1">{value}</div>
         <div className="text-xs text-on-surface-variant font-medium">{title}</div>
         {sub && <div className="text-[10px] text-on-surface-variant/70 mt-1">{sub}</div>}
       </div>
@@ -83,7 +83,7 @@ export default function Dashboard() {
           <p className="text-sm text-on-surface-variant mt-1">Here's your financial overview for {new Date().toLocaleString('default', { month: 'long', year: 'numeric' })}</p>
         </div>
         <div className="flex gap-2">
-          <Link to="/app/expenses" className="bg-gradient-to-r from-primary to-secondary text-on-primary-container font-bold px-4 py-2.5 rounded-xl hover:shadow-[0_0_15px_rgba(173,198,255,0.4)] transition-all text-sm flex items-center gap-1.5">
+          <Link to="/app/expenses" className="bg-primary text-primary-foreground font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-primary/20 transition-all text-sm flex items-center gap-1.5">
             <span className="material-symbols-outlined text-sm font-bold">add_circle</span> Add Expense
           </Link>
         </div>
@@ -114,7 +114,7 @@ export default function Dashboard() {
         {/* Income vs Expenses Chart */}
         <div className="glass-card p-5 lg:col-span-2 flex flex-col justify-between">
           <div className="mb-5">
-            <h2 className="font-display font-semibold text-white">Income vs Expenses</h2>
+            <h2 className="font-display font-semibold text-foreground">Income vs Expenses</h2>
             <p className="text-xs text-on-surface-variant">Last 6 months trend</p>
           </div>
           <div className="flex-1 min-h-[220px]">
@@ -145,7 +145,7 @@ export default function Dashboard() {
         {/* Category Pie */}
         <div className="glass-card p-5 flex flex-col justify-between">
           <div className="mb-5">
-            <h2 className="font-display font-semibold text-white">Expense Breakdown</h2>
+            <h2 className="font-display font-semibold text-foreground">Expense Breakdown</h2>
             <p className="text-xs text-on-surface-variant">This month by category</p>
           </div>
           {d.categoryData.length > 0 ? (
@@ -170,7 +170,7 @@ export default function Dashboard() {
                       <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
                       <span className="text-on-surface-variant">{cat.name}</span>
                     </div>
-                    <span className="font-medium text-white">{formatCurrency(cat.value)}</span>
+                    <span className="font-medium text-foreground">{formatCurrency(cat.value)}</span>
                   </div>
                 ))}
               </div>
@@ -187,7 +187,7 @@ export default function Dashboard() {
         <div className="glass-card p-5">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="font-display font-semibold text-white">Recent Transactions</h2>
+              <h2 className="font-display font-semibold text-foreground">Recent Transactions</h2>
               <p className="text-xs text-on-surface-variant">Latest activity</p>
             </div>
             <Link to="/app/expenses" className="text-xs text-primary hover:text-primary/80 flex items-center gap-1">
@@ -200,7 +200,7 @@ export default function Dashboard() {
                 id: string; type: 'income' | 'expense'; description: string;
                 category: string; amount: number; date: string
               }) => (
-                <div key={tx.id} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0 hover:bg-white/[0.02] px-2 rounded-xl transition-all">
+                <div key={tx.id} className="flex items-center justify-between py-2 border-b border-border last:border-0 hover:bg-accent/50 px-2 rounded-xl transition-all">
                   <div className="flex items-center gap-3">
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm
                       ${tx.type === 'income' ? 'bg-emerald-500/15 text-emerald-400' : 'bg-red-500/15 text-red-400'}`}>
@@ -209,7 +209,7 @@ export default function Dashboard() {
                       </span>
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-white truncate max-w-[160px]">{tx.description}</div>
+                      <div className="text-sm font-semibold text-foreground truncate max-w-[160px]">{tx.description}</div>
                       <div className="text-xs text-on-surface-variant">{formatDate(tx.date)}</div>
                     </div>
                   </div>
@@ -234,7 +234,7 @@ export default function Dashboard() {
         <div className="glass-card p-5">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="font-display font-semibold text-white">Upcoming Bills</h2>
+              <h2 className="font-display font-semibold text-foreground">Upcoming Bills</h2>
               <p className="text-xs text-on-surface-variant">Pending payments</p>
             </div>
             <Link to="/app/bills" className="text-xs text-primary hover:text-primary/80 flex items-center gap-1">
@@ -246,13 +246,13 @@ export default function Dashboard() {
               {d.bills.map((bill: {
                 id: string; bill_name: string; amount: number; due_date: string; status: string
               }) => (
-                <div key={bill.id} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0 hover:bg-white/[0.02] px-2 rounded-xl transition-all">
+                <div key={bill.id} className="flex items-center justify-between py-2 border-b border-border last:border-0 hover:bg-accent/50 px-2 rounded-xl transition-all">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-yellow-500/15 text-yellow-400 flex items-center justify-center">
                       <span className="material-symbols-outlined text-base">receipt</span>
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-white">{bill.bill_name}</div>
+                      <div className="text-sm font-semibold text-foreground">{bill.bill_name}</div>
                       <div className="text-xs text-on-surface-variant">Due {formatDate(bill.due_date)}</div>
                     </div>
                   </div>
@@ -274,7 +274,7 @@ export default function Dashboard() {
 
       {/* Quick Actions */}
       <div className="glass-card p-5">
-        <h2 className="font-display font-semibold text-white mb-4">Quick Actions</h2>
+        <h2 className="font-display font-semibold text-foreground mb-4">Quick Actions</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
             { label: 'Add Expense', to: '/app/expenses', icon: 'trending_down', color: 'from-red-500/20 to-red-600/10 border-red-500/20 hover:border-red-500/40', iconColor: 'text-red-400' },

@@ -174,7 +174,7 @@ export default function Expenses() {
           <p className="text-sm text-on-surface-variant mt-1">Track and manage your spending</p>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={handleExport} className="flex items-center gap-1.5 px-4 py-2 border border-white/10 rounded-xl text-sm hover:bg-white/5 transition-colors font-bold text-white">
+          <button onClick={handleExport} className="flex items-center gap-1.5 px-4 py-2 border border-border rounded-xl text-sm hover:bg-accent transition-colors font-bold text-foreground">
             <span className="material-symbols-outlined text-sm">download</span> Export CSV
           </button>
         </div>
@@ -188,7 +188,7 @@ export default function Expenses() {
         </div>
         <div className="glass-card p-6 rounded-xl flex flex-col justify-center min-h-[120px]">
           <p className="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">Transactions Count</p>
-          <h2 className="text-2xl font-bold text-white mt-1">{expenses.length}</h2>
+          <h2 className="text-2xl font-bold text-foreground mt-1">{expenses.length}</h2>
         </div>
         <div className="glass-card p-6 rounded-xl flex flex-col justify-center min-h-[120px]">
           <p className="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">Avg Transaction Cost</p>
@@ -205,7 +205,7 @@ export default function Expenses() {
           <div className="relative w-full md:flex-1">
             <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
             <input
-              className="w-full bg-[#0F172A] border border-white/5 rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-primary/50 transition-all font-body-md text-sm text-white outline-none placeholder:text-on-surface-variant/70"
+              className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-primary/50 transition-all font-body-md text-sm text-foreground outline-none placeholder:text-muted-foreground"
               placeholder="Search transactions..."
               value={search}
               onChange={e => setSearch(e.target.value)}
@@ -221,8 +221,8 @@ export default function Expenses() {
                 className={cn(
                   'px-4 py-2 rounded-full font-label-md text-xs whitespace-nowrap transition-all active:scale-95 border',
                   filterCat === cat
-                    ? 'bg-gradient-to-r from-primary to-secondary text-on-primary-container font-bold border-transparent'
-                    : 'bg-white/5 text-on-surface-variant hover:bg-white/10 border-white/5'
+                    ? 'bg-primary text-primary-foreground font-bold border-transparent'
+                    : 'bg-accent text-muted-foreground hover:bg-accent/80 border-border'
                 )}
               >
                 {cat === 'all' ? 'All' : cat}
@@ -239,7 +239,7 @@ export default function Expenses() {
         ) : expenses.length === 0 ? (
           <div className="text-center py-16 text-on-surface-variant glass-card">
             <span className="material-symbols-outlined text-4xl opacity-30 mb-2">payments</span>
-            <p className="font-semibold text-white">No expenses found</p>
+            <p className="font-semibold text-foreground">No expenses found</p>
             <p className="text-xs mt-1">Add your first expense transaction to begin tracking</p>
             <button onClick={openAdd} className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-primary/20 text-primary font-bold rounded-xl text-xs hover:bg-primary/30 transition-colors">
               <Plus size={14} /> Add Transaction
@@ -261,14 +261,14 @@ export default function Expenses() {
                       <div
                         key={expense.id}
                         onClick={() => openEdit(expense)}
-                        className="glass-card hover:bg-white/[0.04] p-4 rounded-xl flex items-center justify-between transition-all group cursor-pointer border border-white/5"
+                        className="glass-card hover:bg-accent/50 p-4 rounded-xl flex items-center justify-between transition-all group cursor-pointer border border-border"
                       >
                         <div className="flex items-center gap-4">
                           <div className={cn('w-11 h-11 rounded-xl flex items-center justify-center', catColors)}>
                             <span className="material-symbols-outlined text-lg">{catIcon}</span>
                           </div>
                           <div>
-                            <p className="font-body-md text-sm text-white font-bold">{expense.description}</p>
+                            <p className="font-body-md text-sm text-foreground font-bold">{expense.description}</p>
                             <p className="font-label-md text-xs text-on-surface-variant">
                               {expense.category} • {expense.payment_method}
                             </p>
@@ -301,7 +301,7 @@ export default function Expenses() {
       {/* Floating Action Button (FAB) */}
       <button
         onClick={openAdd}
-        className="fixed bottom-24 right-4 md:bottom-12 md:right-8 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-primary to-secondary shadow-2xl flex items-center justify-center text-on-primary-container active:scale-90 transition-transform z-40 group border border-white/10"
+        className="fixed bottom-24 right-4 md:bottom-12 md:right-8 w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary shadow-2xl flex items-center justify-center text-primary-foreground active:scale-90 transition-transform z-40 group border border-border"
       >
         <span className="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform duration-300">add</span>
         <div className="absolute -top-12 right-0 bg-surface-container-highest text-on-surface px-3 py-1.5 rounded-lg text-xs font-bold opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">

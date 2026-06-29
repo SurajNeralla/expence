@@ -25,7 +25,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="hidden lg:flex flex-col h-screen p-6 gap-6 bg-[#101415] w-[280px] fixed left-0 top-0 border-r border-white/5 shadow-xl z-50 text-on-surface"
+      className="hidden lg:flex flex-col h-screen p-4 gap-6 bg-card w-[250px] fixed left-0 top-0 border-r border-border shadow-xl z-50 text-foreground"
     >
       {/* Logo */}
       <div className="flex items-center gap-3 pl-1">
@@ -40,8 +40,8 @@ export default function Sidebar() {
             key={item.to}
             to={item.to}
             className={({ isActive }) => cn(
-              'flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-foreground hover:bg-white/5 transition-all duration-200 text-sm font-medium',
-              isActive && 'bg-white/5 text-primary border-r-4 border-primary'
+              'flex items-center gap-4 px-4 py-3 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 text-sm font-medium',
+              isActive && 'bg-accent text-primary border-r-4 border-primary'
             )}
           >
             <span className="material-symbols-outlined text-lg">{item.icon}</span>
@@ -51,15 +51,15 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom & User Card */}
-      <div className="space-y-4 pt-4 border-t border-white/5">
+      <div className="space-y-4 pt-4 border-t border-border">
         <div className="space-y-1">
           {bottomItems.map(item => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) => cn(
-                'flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-foreground hover:bg-white/5 transition-all duration-200 text-sm font-medium',
-                isActive && 'bg-white/5 text-primary border-r-4 border-primary'
+                'flex items-center gap-4 px-4 py-3 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 text-sm font-medium',
+                isActive && 'bg-accent text-primary border-r-4 border-primary'
               )}
             >
               <span className="material-symbols-outlined text-lg">{item.icon}</span>
@@ -76,17 +76,17 @@ export default function Sidebar() {
         </div>
 
         {profile && (
-          <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div className="flex items-center gap-3 pt-4 border-t border-border">
             <div className="w-11 h-11 rounded-full border-2 border-primary overflow-hidden flex-shrink-0 bg-primary/10 flex items-center justify-center text-primary font-bold">
               {profile.full_name?.charAt(0).toUpperCase() || 'U'}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-body-md text-sm text-on-surface font-bold truncate">{profile.full_name}</p>
+              <p className="font-body-md text-sm text-foreground font-bold truncate">{profile.full_name}</p>
               <p className="font-label-md text-xs text-primary truncate">Premium Member</p>
             </div>
           </div>
         )}
-        <p className="text-[10px] text-on-surface-variant/40 uppercase tracking-widest text-center">v2.4.0</p>
+        <p className="text-[10px] text-muted-foreground/40 uppercase tracking-widest text-center">v2.4.0</p>
       </div>
     </aside>
   )
